@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Bank Project</h1>
+         <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="document">Upload a project file:</label>
+      <input type="file" name="document" id="document" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+ </form>
+        <h1>LogIn</h1>
+         <form action="">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                 <label for="account number">account number:</label>
+                <input type="account number" id="account number" name="account number" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+         <title>5 Branch Banking Project</title>
+    <style>
+        .branch {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the 5 Branch Banking Project</h1>
+
+    <div class="branch">
+        <h2>Branch 1</h2>
+         <input type="name" placeholder="Name">
+         <input type="email" placeholder="email">
+         <input type="email" placeholder="password">
+        <input type="email" placeholder="submit">
+        <p>Address: 123 Main Street, City, State, ZIP</p>
+        <p>Phone: (123) 456-7890</p>
+        <p>Email: info@branch1.com</p>
+    </div>
+
+    <div class="branch">
+        <h2>Branch 2</h2>
+         <input type="email" placeholder="Name">
+         <input type="email" placeholder="email">
+         <input type="email" placeholder="Password">
+        <input type="email" placeholder="submit">
+        <p>Address: 456 Secondary Street, City, State, ZIP</p>
+        <p>Phone: (456) 789-0123</p>
+        <p>Email: info@branch2.com</p>
+    </div>
+
+    <div class="branch">
+        <h2>Branch 3</h2>
+         <input type="email" placeholder="name">
+         <input type="email" placeholder="email">
+         <input type="email" placeholder="password">
+        <input type="email" placeholder="submit">
+
+        <p>Address: 789 Tertiary Street, City, State, ZIP</p>
+        <p>Phone: (789) 012-3456</p>
+        <p>Email: info@branch3.com</p>
+    </div>
+
+    <div class="branch">
+        <h2>Branch 4</h2>
+         <input type="email" placeholder="name">
+         <input type="email" placeholder="email">
+        <input type="email" placeholder="password">
+         <input type="email" placeholder="submit">
+        <p>Address: 1011 Quaternary Street, City, State, ZIP</p>
+        <p>Phone: (1011) 123-4567</p>
+        <p>Email: info@branch4.com</p>
+    </div>
+
+    <div class="branch">
+        <h2>Branch 5</h2>
+         <input type="email" placeholder="name">
+         <input type="email" placeholder="email">
+         <input type="email" placeholder="password">
+         <input type="email" placeholder="submit">
+        <p>Address: 1213 Quinary Street, City, State
+
+    </header>
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+    <footer>
+        <p>Copyright © 2023 Bank Project</p>
+    </footer>
+</body>
+</html>
