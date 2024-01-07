@@ -1,36 +1,55 @@
 from django.db import models
 
 # Create your models here.
-
-
-# Create your models here.
-
 from django.db import models
 
-class Customer(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    email = models.EmailField(max_length=254)
-    phone_number = models.CharField(max_length=12)
+# Create your models here.
+class Place(models.Model):
+    name=models.CharField(max_length=250)
+    img=models.ImageField(upload_to='pics')
+    desc=models.TextField()
+
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return self.name
 
-class Account(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    account_number = models.CharField(max_length=10, unique=True)
-    balance = models.DecimalField(max_digits=10, decimal_places=2)
+
+class Team(models.Model):
+    name=models.CharField(max_length=250)
+    img=models.ImageField(upload_to='pics')
+    desc=models.TextField()
+
 
     def __str__(self):
-        return self.account_number
+        return self.name
 
-class Transaction(models.Model):
-    account = models.ForeignKey(Account, on_delete=models.CASCADE)
-    transaction_type = models.CharField(max_length=50)
-    amount = models.DecimalField(max_digits=10, decimal_places=2)
-    transaction_date = models.DateTimeField(auto_now_add=True)
+
+
+class Register(models.Model):
+    name=models.CharField(max_length=250)
+    email=models.EmailField(max_length=250)
+    password=models.TextField()
+    Cpassword=models.TextField()
+
+
 
     def __str__(self):
-        return f"{self.transaction_type} - {self.amount}"
+        return self.name
 
 
+class Login(models.Model):
+
+    email = models.EmailField(max_length=250)
+    password = models.TextField()
+
+
+    def __str__(self):
+        return self.name
+
+
+class Logout(models.Model):
+    email = models.EmailField(max_length=250)
+    password = models.TextField()
+
+    def __str__(self):
+        return self.name

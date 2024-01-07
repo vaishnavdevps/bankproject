@@ -1,110 +1,676 @@
 {% load static %}
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}{% endblock title %}</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-</head>
-<body>
-    <header>
-        <h1>Bank Project</h1>
-         <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="form-group">
-      <label for="document">Upload a project file:</label>
-      <input type="file" name="document" id="document" class="form-control">
-    </div>
-    <button type="submit" class="btn btn-primary">Upload</button>
- </form>
-        <h1>LogIn</h1>
-         <form action="">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-                 <label for="account number">account number:</label>
-                <input type="account number" id="account number" name="account number" required>
+        <title>Topic Listing Bootstrap 5 Template</title>
 
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-                <button type="submit">Submit</button>
-            </form>
-         <title>5 Branch Banking Project</title>
-    <style>
-        .branch {
-            border: 1px solid black;
-            padding: 10px;
-            margin: 10px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Welcome to the 5 Branch Banking Project</h1>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+                        
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <div class="branch">
-        <h2>Branch 1</h2>
-         <input type="name" placeholder="Name">
-         <input type="email" placeholder="email">
-         <input type="email" placeholder="password">
-        <input type="email" placeholder="submit">
-        <p>Address: 123 Main Street, City, State, ZIP</p>
-        <p>Phone: (123) 456-7890</p>
-        <p>Email: info@branch1.com</p>
-    </div>
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
 
-    <div class="branch">
-        <h2>Branch 2</h2>
-         <input type="email" placeholder="Name">
-         <input type="email" placeholder="email">
-         <input type="email" placeholder="Password">
-        <input type="email" placeholder="submit">
-        <p>Address: 456 Secondary Street, City, State, ZIP</p>
-        <p>Phone: (456) 789-0123</p>
-        <p>Email: info@branch2.com</p>
-    </div>
+        <link href="{% static 'css/templatemo-topic-listing.css' %}" rel="stylesheet">
+<!--
 
-    <div class="branch">
-        <h2>Branch 3</h2>
-         <input type="email" placeholder="name">
-         <input type="email" placeholder="email">
-         <input type="email" placeholder="password">
-        <input type="email" placeholder="submit">
+TemplateMo 590 topic listing
 
-        <p>Address: 789 Tertiary Street, City, State, ZIP</p>
-        <p>Phone: (789) 012-3456</p>
-        <p>Email: info@branch3.com</p>
-    </div>
+https://templatemo.com/tm-590-topic-listing
 
-    <div class="branch">
-        <h2>Branch 4</h2>
-         <input type="email" placeholder="name">
-         <input type="email" placeholder="email">
-        <input type="email" placeholder="password">
-         <input type="email" placeholder="submit">
-        <p>Address: 1011 Quaternary Street, City, State, ZIP</p>
-        <p>Phone: (1011) 123-4567</p>
-        <p>Email: info@branch4.com</p>
-    </div>
+-->
+    </head>
+    
+    <body id="top">
 
-    <div class="branch">
-        <h2>Branch 5</h2>
-         <input type="email" placeholder="name">
-         <input type="email" placeholder="email">
-         <input type="email" placeholder="password">
-         <input type="email" placeholder="submit">
-        <p>Address: 1213 Quinary Street, City, State
+        <main>
 
-    </header>
-    <main>
-        {% block content %}{% endblock content %}
-    </main>
-    <footer>
-        <p>Copyright © 2023 Bank Project</p>
-    </footer>
-</body>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">
+                        <i class="bi-back"></i>
+                        <span>INMAKES BANK</span>
+                    </a>
+
+                    <div class="d-lg-none ms-auto me-4">
+                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                    </div>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-2 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Register</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                     <input type="text" name="username" placeholder="Enter your username"><br>
+                                    <input type="text" name="first_name" placeholder="Enter your first_name"><br>
+                                    <input type="text" name="last_name" placeholder="Enter your last_name"><br>
+                                    <input type="email" name="email" placeholder="Enter your email address"><br>
+                                    <input type="password" name="password" placeholder="Enter your password"><br>
+                                    <input type="password" name="password1" placeholder="confirm password"><br>
+                                   <input  type="submit"><br>
+                                </ul>
+                            </li>
+
+
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_3">Contact</a>
+
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">LOGIN</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                     <input type="email" name="email" placeholder="Enter your email address"><br>
+                                    <input type="password" name="password" placeholder="Enter your password"><br>
+                                    <input  type="submit"><br>
+                                </ul>
+                            </li>
+
+
+    
+                             <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Logout</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                     <input type="email" name="email" placeholder="Enter your email address"><br>
+                                    <input type="password" name="password" placeholder="Enter your password"><br>
+                                    <input  type="submit"><br>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Branches</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="topics-listing.html">Thrissur</a></li>
+                                    <li><a class="dropdown-item" href="topics-listing.html">Ernakulam</a></li>
+                                    <li><a class="dropdown-item" href="topics-listing.html">palakkad</a></li>
+                                    <li><a class="dropdown-item" href="topics-listing.html">wayanad</a></li>
+
+                                    <li><a class="dropdown-item" href="contact.html">kannur</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-block">
+                            <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1"><br>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-8 col-12 mx-auto">
+                            <h1 class="text-white text-center">INMAKES BANK Mobile App</h1>
+
+                            <h6 class="text-center"></h6>
+
+                            <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text bi-search" id="basic-addon1">
+                                        
+                                    </span>
+
+                                    <input name="keyword" type="search" class="form-control" id="keyword" placeholder="What are you...." aria-label="Search">
+
+                                    <button type="submit" class="form-control">Search</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="featured-section">
+                <div class="container">
+                    <div class="row justify-content-center">
+
+                        <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+                            <div class="custom-block bg-white shadow-lg">
+                                <a href="topics-detail.html">
+                                    <div class="d-flex">
+                                        <div>
+                                            <h5 class="mb-2">The savings account for the digitally savvy you!</h5>
+
+                                            <p class="mb-0">A Savings Account is a safe place to keep your money & make it grow .INAMKES BANK lets you open savings Account Instantly Apply now for..... </p>
+                                        </div>
+
+                                        <span class="badge bg-design rounded-pill ms-auto">14</span>
+                                    </div>
+
+                                    <img src="{% static 'images/topics/undraw_Remote_design_team_re_urdx.png' %}" class="custom-block-image img-fluid" alt="">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="custom-block custom-block-overlay">
+                                <div class="d-flex flex-column h-100">
+                                    <img src="{% static 'images/businesswoman-using-tablet-analysis.jpg' %}" class="custom-block-image img-fluid" alt="">
+
+                                    <div class="custom-block-overlay-text d-flex">
+                                        <div>
+                                            <h5 class="text-white mb-2">Finance</h5>
+
+                                            <p class="text-white">Finance is the study and discipline of money currency and capital assets.it is related to but not synonymous with economics, whic is the study of production,distribution, and consumption of goods and services;</p>
+
+                                            <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
+                                        </div>
+
+                                        <span class="badge bg-finance rounded-pill ms-auto">25</span>
+                                    </div>
+
+                                    <div class="social-share d-flex">
+                                        <p class="text-white me-4">Share:</p>
+
+                                        <ul class="social-icon">
+                                            <li class="social-icon-item">
+                                                <a href="#" class="social-icon-link bi-twitter"></a>
+                                            </li>
+
+                                            <li class="social-icon-item">
+                                                <a href="#" class="social-icon-link bi-facebook"></a>
+                                            </li>
+
+                                            <li class="social-icon-item">
+                                                <a href="#" class="social-icon-link bi-pinterest"></a>
+                                            </li>
+                                        </ul>
+
+                                        <a href="#" class="custom-icon bi-bookmark ms-auto"></a>
+                                    </div>
+
+                                    <div class="section-overlay"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="explore-section section-padding" id="section_2">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h2 class="mb-4">About</h1>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="design-tab" data-bs-toggle="tab" data-bs-target="#design-tab-pane" type="button" role="tab" aria-controls="design-tab-pane" aria-selected="true">Accounts</button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="marketing-tab" data-bs-toggle="tab" data-bs-target="#marketing-tab-pane" type="button" role="tab" aria-controls="marketing-tab-pane" aria-selected="false">Insurance</button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="finance-tab" data-bs-toggle="tab" data-bs-target="#finance-tab-pane" type="button" role="tab" aria-controls="finance-tab-pane" aria-selected="false">Credit card</button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="music-tab" data-bs-toggle="tab" data-bs-target="#music-tab-pane" type="button" role="tab" aria-controls="music-tab-pane" aria-selected="false">NEFT Transfer</button>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education-tab-pane" type="button" role="tab" aria-controls="education-tab-pane" aria-selected="false">Loans</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Accounts</h5>
+
+                                                            <p class="mb-0">Savings MAX Account, Digisave Youth Account,Women's Savings Account, Senior Citizens Savings Account and Regular Account</p>
+                                                        </div>
+
+                                                        <span class="badge bg-design rounded-pill ms-auto">14</span>
+                                                    </div>
+
+                                                    <img src="{% static 'images/topics/undraw_Remote_design_team_re_urdx.png' %}" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Current account</h5>
+
+                                                                <p class="mb-0">Protect yourselfand your family from life's uncertainties with INMAKES BANK's wide range of life insurance.</p>
+                                                        </div>
+
+                                                        <span class="badge bg-design rounded-pill ms-auto">75</span>
+                                                    </div>
+
+                                                    <img src="{% static 'images/topics/undraw_Redesign_feedback_re_jvm0.png' %}" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Savings account</h5>
+
+                                                                <p class="mb-0">Experince the convenience of INMAKES Bank Loans your ultimate solutions for all financial needs.</p>
+                                                        </div>
+
+                                                        <span class="badge bg-design rounded-pill ms-auto">100</span>
+                                                    </div>
+
+                                                    <img src="{% static 'images/topics/colleagues-working-cozy-office-medium-shot.png' %}" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="marketing-tab-pane" role="tabpanel" aria-labelledby="marketing-tab" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                                <div class="custom-block bg-white shadow-lg">
+                                                    <a href="topics-detail.html">
+                                                        <div class="d-flex">
+                                                            <div>
+                                                                <h5 class="mb-2">Insurance</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                            </div>
+
+                                                            <span class="badge bg-advertising rounded-pill ms-auto">30</span>
+                                                        </div>
+
+                                                        <img src="{% static 'images/topics/undraw_online_ad_re_ol62.png' %}" class="custom-block-image img-fluid" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                                <div class="custom-block bg-white shadow-lg">
+                                                    <a href="topics-detail.html">
+                                                        <div class="d-flex">
+                                                            <div>
+                                                                <h5 class="mb-2">Health Insurance</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                            </div>
+
+                                                            <span class="badge bg-advertising rounded-pill ms-auto">65</span>
+                                                        </div>
+
+                                                        <img src="{% static 'images/topics/undraw_Group_video_re_btu7.png' %}" class="custom-block-image img-fluid" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-4 col-md-6 col-12">
+                                                <div class="custom-block bg-white shadow-lg">
+                                                    <a href="topics-detail.html">
+                                                        <div class="d-flex">
+                                                            <div>
+                                                                <h5 class="mb-2">Motor Insurance</h5>
+
+                                                                <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                            </div>
+
+                                                            <span class="badge bg-advertising rounded-pill ms-auto">50</span>
+                                                        </div>
+
+                                                        <img src="{% static 'images/topics/undraw_viral_tweet_gndb.png' %}" class="custom-block-image img-fluid" alt="">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                  </div>
+
+                                <div class="tab-pane fade" id="finance-tab-pane" role="tabpanel" aria-labelledby="finance-tab" tabindex="0">   <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-0">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Business card</h5>
+
+                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-finance rounded-pill ms-auto">30</span>
+                                                    </div>
+
+                                                    <img src="{% static 'images/topics/undraw_Finance_re_gnv2.png' %}" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="custom-block custom-block-overlay">
+                                                <div class="d-flex flex-column h-100">
+                                                    <img src="{% static 'images/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.jpg' %}" class="custom-block-image img-fluid" alt="">
+
+                                                    <div class="custom-block-overlay-text d-flex">
+                                                        <div>
+                                                            <h5 class="text-white mb-2">Purchase card</h5>
+
+                                                            <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint animi necessitatibus aperiam repudiandae nam omnis</p>
+
+                                                            <a href="topics-detail.html" class="btn custom-btn mt-2 mt-lg-3">Learn More</a>
+                                                        </div>
+
+                                                        <span class="badge bg-finance rounded-pill ms-auto">25</span>
+                                                    </div>
+
+                                                    <div class="social-share d-flex">
+                                                        <p class="text-white me-4">Share:</p>
+
+                                                        <ul class="social-icon">
+                                                            <li class="social-icon-item">
+                                                                <a href="#" class="social-icon-link bi-twitter"></a>
+                                                            </li>
+
+                                                            <li class="social-icon-item">
+                                                                <a href="#" class="social-icon-link bi-facebook"></a>
+                                                            </li>
+
+                                                            <li class="social-icon-item">
+                                                                <a href="#" class="social-icon-link bi-pinterest"></a>
+                                                            </li>
+                                                        </ul>
+
+                                                        <a href="#" class="custom-icon bi-bookmark ms-auto"></a>
+                                                    </div>
+
+                                                    <div class="section-overlay"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="music-tab-pane" role="tabpanel" aria-labelledby="music-tab" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">RTGS</h5>
+
+                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-music rounded-pill ms-auto">45</span>
+                                                    </div>
+
+                                                    <img src="{% static 'images/topics/undraw_Compose_music_re_wpiw.png' %}" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-3">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">IMPS </h5>
+
+                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-music rounded-pill ms-auto">45</span>
+                                                    </div>
+
+                                                    <img src="{% static 'images/topics/undraw_happy_music_g6wc.png' %}" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">UPI</h5>
+
+                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-music rounded-pill ms-auto">20</span>
+                                                    </div>
+
+                                                    <img src="{% static 'images/topics/undraw_Podcast_audience_re_4i5q.png' %}" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="education-tab-pane" role="tabpanel" aria-labelledby="education-tab" tabindex="0">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-12 mb-4 mb-lg-3">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Home Loan</h5>
+
+                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-education rounded-pill ms-auto">80</span>
+                                                    </div>
+
+                                                    <img src="{% static 'images/topics/undraw_Graduation_re_gthn.png' %}" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="custom-block bg-white shadow-lg">
+                                                <a href="topics-detail.html">
+                                                    <div class="d-flex">
+                                                        <div>
+                                                            <h5 class="mb-2">Education Loan</h5>
+
+                                                            <p class="mb-0">Lorem Ipsum dolor sit amet consectetur</p>
+                                                        </div>
+
+                                                        <span class="badge bg-education rounded-pill ms-auto">75</span>
+                                                    </div>
+
+                                                    <img src="{% static 'images/topics/undraw_Educator_re_ju47.png' %}" class="custom-block-image img-fluid" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="timeline-section section-padding" id="section_3">
+                <div class="section-overlay"></div>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 text-center">
+                            <h2 class="text-white mb-4">How does it BANK</h1>
+                        </div>
+
+                        <div class="col-lg-10 col-12 mx-auto">
+                            <div class="timeline-container">
+                                <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+                                    <div class="list-progress">
+                                        <div class="inner"></div>
+                                    </div>
+
+                                    <li>
+                                        <h4 class="text-white mb-3">Search your favourite topic</h4>
+
+                                        <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, cumque magnam? Sequi, cupiditate quibusdam alias illum sed esse ad dignissimos libero sunt, quisquam numquam aliquam? Voluptas, accusamus omnis?</p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-search"></i>
+                                        </div>
+                                    </li>
+                                    
+                                    <li>
+                                        <h4 class="text-white mb-3">Bookmark &amp; Keep it for yourself</h4>
+
+                                        <p class="text-white">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint animi necessitatibus aperiam repudiandae nam omnis est vel quo, nihil repellat quia velit error modi earum similique odit labore. Doloremque, repudiandae?</p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-bookmark"></i>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <h4 class="text-white mb-3">Read &amp; Enjoy</h4>
+
+                                        <p class="text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi vero quisquam, rem assumenda similique voluptas distinctio, iste est hic eveniet debitis ut ducimus beatae id? Quam culpa deleniti officiis autem?</p>
+
+                                        <div class="icon-holder">
+                                          <i class="bi-book"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-12 text-center mt-5">
+                            <p class="text-white">
+                                Want to learn more?
+                                <a href="#" class="btn custom-btn custom-border-btn ms-3">Check out Youtube</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+
+
+        </main>
+
+<footer class="site-footer section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mb-4 pb-2">
+                        <a class="navbar-brand mb-2" href="index.html">
+                            <i class="bi-back"></i>
+                            <span>INMAKES BANK</span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <h6 class="site-footer-title mb-3">Resources</h6>
+
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Home</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">HELP</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">FAQs</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
+                        <h6 class="site-footer-title mb-3">Information</h6>
+
+                        <p class="text-white d-flex mb-1">
+                            <a href="tel: 305-240-9671" class="site-footer-link">
+                                305-240-9671
+                            </a>
+                        </p>
+
+                        <p class="text-white d-flex">
+                            <a href="mailto:inmakes@bank.com" class="site-footer-link">
+                                INMAKES BANK@company.com
+                            </a>
+                        </p>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'js/jquery.sticky.js' %}"></script>
+        <script src="{% static 'js/click-scroll.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+
+    </body>
 </html>

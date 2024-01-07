@@ -1,11 +1,6 @@
+from . import views
 from django.urls import path
-from   .import views
 
-app_name='bank_app'
-
-
-urlpatterns=[
-    path('', views.index, name='index'),
-
-
+urlpatterns = [
+    path('',views.demo,name='demo')
 ]

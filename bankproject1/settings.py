@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bank_app',
+    'Downward',
+
 ]
 
 MIDDLEWARE = [
@@ -76,8 +78,10 @@ WSGI_APPLICATION = 'bankproject1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'inmakes python',
+        'USER': 'root',
+        'PASSWORD':'',
     }
 }
 

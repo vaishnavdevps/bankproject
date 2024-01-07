@@ -1,14 +1,22 @@
-from django.contrib import messages
+from django.contrib import auth, messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from  . models import Place
-from  . models import Team
-# Create your views here.
-def demo(request):
-    obj=Place.objects.all()
-    obj1=Team.objects.all()
-    return render(request,"index.html", {'result':obj,'results':obj1})
 
+
+# Create your views here.
+def login(request):
+    if request.method == 'POST':
+        username=request.POST['username']
+        password=request.POST['password']
+        user=auth.authenticate(username=username,password=password)
+
+        if user is not None:
+            auth.login(request,user)
+            return  redirect('/')
+        else:
+            messages.info(request,"invalid credentials")
+            return redirect('login')
+    return render(request,"login.html")
 def register(request):
     if request.method== 'POST':
         username=request.POST['username']
@@ -36,4 +44,8 @@ def register(request):
         return  redirect('/')
 
 
-    return render(request,"index.html")
+    return render(request,"register.html")
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
